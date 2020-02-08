@@ -1,4 +1,5 @@
 import 'package:firestore_ref/firestore_ref.dart';
+import 'package:cloud_firestore/cloud_firestore' hide FieldValue;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -15,11 +16,11 @@ mixin HasTimestamp {
   }
 
   static DateTime parseCreatedAt(Map<String, dynamic> json) {
-    return parseTimestamp(json: json, key: TimestampField.createdAt);
+    return _parseTimestamp(json: json, key: TimestampField.createdAt);
   }
 
   static DateTime parseUpdatedAt(Map<String, dynamic> json) {
-    return parseTimestamp(json: json, key: TimestampField.updatedAt);
+    return _parseTimestamp(json: json, key: TimestampField.updatedAt);
   }
 
   @override
@@ -39,7 +40,7 @@ class TimestampField {
   static const updatedAt = 'updatedAt';
 }
 
-DateTime parseTimestamp({
+DateTime _parseTimestamp({
   @required Map<String, dynamic> json,
   @required String key,
 }) {
