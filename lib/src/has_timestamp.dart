@@ -1,5 +1,5 @@
 import 'package:firestore_ref/firestore_ref.dart';
-import 'package:cloud_firestore/cloud_firestore' hide FieldValue;
+import 'package:cloud_firestore/cloud_firestore.dart' hide FieldValue;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
